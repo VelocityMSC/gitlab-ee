@@ -1,0 +1,9 @@
+# Arch Linux fakeroot and unpacked sources directories
+pkg/
+src/
+
+# Source files
+*.gz
+
+# Built packages
+*.xz
