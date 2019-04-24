@@ -73,7 +73,7 @@ prepare() {
 
     # Patching config files:
     echo "Patching paths in and username gitlab.yml..."
-    sed -e "s|# user: git|user: gitlab|" \
+    sed -e "s|# user: git|user: git|" \
         -e "s|/home/git/gitaly/bin|/usr/bin|" \
         -e "s|/home/git/repositories|${_homedir}/repositories|" \
         -e "s|/home/git/gitlab-satellites|${_homedir}/satellites|" \
