@@ -116,7 +116,7 @@ build() {
     echo "Fetching bundled gems..."
 
     # Gems will be installed into vendor/bundle
-    bundle-2.5 install --no-cache --deployment --without development test aws kerberos
+    bundle-2.5 install --no-cache --without mysql development test --deployment
 
     # We'll temporarily stick this in here so we can build the assets
     cp config/database.yml.postgresql.orig config/database.yml
