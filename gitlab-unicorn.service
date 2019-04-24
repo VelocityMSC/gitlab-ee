@@ -6,8 +6,8 @@ After=redis.service mysqld.service postgresql.service network.target
 StartLimitIntervalSec=100s
 
 [Service]
-User=gitlab
-Group=gitlab
+User=git
+Group=git
 WorkingDirectory=<DATADIR>
 # Prevent ExecJS from complaining that Node is not installed in production
 Environment=RAILS_ENV=production PATH=/opt/ruby2.5/bin:/usr/bin EXECJS_RUNTIME=Disabled
