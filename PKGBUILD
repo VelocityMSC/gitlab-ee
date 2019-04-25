@@ -151,13 +151,13 @@ cd "${srcdir}/${_srcdir}"*
     chown -R root:root "${pkgdir}${_datadir}"
     chmod 755 "${pkgdir}${_datadir}"
 
-    install -dm750 -o 105 -g 105 "${pkgdir}${_homedir}"
-    install -dm750 -o 105 -g 105 "${pkgdir}${_homedir}/satellites"
-    install -dm750 -o 105 -g 105 "${pkgdir}${_homedir}/shared/"{,artifacts,lfs-objects}
-    install -dm750 -o 105 -g 105 "${pkgdir}${_homedir}/builds"
-    install -dm700 -o 105 -g 105 "${pkgdir}${_homedir}/uploads"
-    install -dm750 -o 105 -g 105 "${pkgdir}${_homedir}/backups"
-    install -dm750 -o 105 -g 105 "${pkgdir}${_etcdir}"
+    install -dm750 -o 979 -g 979 "${pkgdir}${_homedir}"
+    install -dm750 -o 979 -g 979 "${pkgdir}${_homedir}/satellites"
+    install -dm750 -o 979 -g 979 "${pkgdir}${_homedir}/shared/"{,artifacts,lfs-objects}
+    install -dm750 -o 979 -g 979 "${pkgdir}${_homedir}/builds"
+    install -dm700 -o 979 -g 979 "${pkgdir}${_homedir}/uploads"
+    install -dm750 -o 979 -g 979 "${pkgdir}${_homedir}/backups"
+    install -dm750 -o 979 -g 979 "${pkgdir}${_etcdir}"
     install -dm755 "${pkgdir}/usr/share/doc/${_pkgname}"
 
     ln -fs /run/gitlab "${pkgdir}${_homedir}/pids"
@@ -174,7 +174,7 @@ cd "${srcdir}/${_srcdir}"*
 
     mv "${pkgdir}${_datadir}/.gitlab_workhorse_secret" "${pkgdir}${_etcdir}/gitlab_workhorse_secret"
     chmod 660 "${pkgdir}${_etcdir}/gitlab_workhorse_secret"
-    chown root:105 "${pkgdir}${_etcdir}/gitlab_workhorse_secret"
+    chown root:979 "${pkgdir}${_etcdir}/gitlab_workhorse_secret"
     ln -fs "${_etcdir}/gitlab_workhorse_secret" "${pkgdir}${_datadir}/.gitlab_workhorse_secret"
 
     ln -fs /etc/webapps/gitlab-shell/secret "${pkgdir}${_datadir}/.gitlab_shell_secret"
@@ -213,7 +213,7 @@ cd "${srcdir}/${_srcdir}"*
     find "${pkgdir}${_datadir}/public/help" -name "*.md" -exec rm {} \;
     find "${pkgdir}${_datadir}/public/help/" -depth -type d -empty -exec rmdir {} \;
 
-    chown 105:105 "${pkgdir}${_datadir}/db/schema.rb"
+    chown 979:979 "${pkgdir}${_datadir}/db/schema.rb"
 
     # Install systemd service files
     for service_file in gitlab-unicorn.service gitlab-sidekiq.service gitlab-backup.service gitlab-backup.timer gitlab.target gitlab-mailroom.service; do
