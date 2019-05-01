@@ -17,4 +17,4 @@ PrivateDevices=true
 ProtectSystem=full
 ProtectHome=true
 NoNewPrivileges=true
-ExecStart=/usr/bin/bundle-2.5 exec rake gitlab:backup:create<Paste>
+ExecStart=/usr/bin/bundle-2.5 exec rake gitlab:backup:create
