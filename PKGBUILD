@@ -1,4 +1,4 @@
-# Gitlab Enterprise Edition v11.10.0
+# Gitlab Enterprise Edition v11.11.0
 # Maintainer: Steven Cook <scook@velocity.org>
 
 # Note: This package conflicts with Gitlab, which provides the CE (community edition).
