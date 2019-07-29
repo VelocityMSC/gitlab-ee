@@ -1,4 +1,4 @@
-# Gitlab Enterprise Edition v12.1.0
+# Gitlab Enterprise Edition v12.1.1
 # Maintainer: Steven Cook <scook@velocity.org>
 
 # Note: This package conflicts with Gitlab, which provides the CE (community edition).
@@ -8,7 +8,7 @@
 _pkgname=gitlab
 
 pkgname=velocity-${_pkgname}-ee
-pkgver=12.1.0
+pkgver=12.1.1
 pkgrel=1
 pkgdesc="Project management and code hosting application"
 arch=('x86_64')
@@ -45,7 +45,7 @@ source=(
 )
 install=gitlab.install
 sha512sums=(
-    '2ccefdfedf3900dda012443837f24ba2c3bdbbbb3c8db979228bd68309d122e8397bd73ae43c4312662aac59e7f7fb8b88522b3b2ce293355b0bf417dbda9f81'
+    '06345c927048ddee90d067853c7cf54351c4baba27f1bda7ca3eadfaabc6d6f268219bf51cd1232c9f045dac4ff2dcd85c12dc755933af1c4ba7b6ca12c5209e'
     '528ffc56bc93f457c0e40ac1dd10b0b565e757d9962102c531ee1084536d8a17796485b704468f051edceb8aea8f8dfa1df3f5682972d5c2c02571b18c7c0568'
     '28cd84a329566724c493ecaa90f23f1f01cdab3673ee4a3ecb7dfc8e33223b858a2fc23a13c2b4be2fd933b26fdfbb781ae10f1a84b248ba2ab3eefc4419f1f7'
     'c711c31a0a7b5a0b8d997827f0895422df7f2c9d81aafc371fe8e09e25ae1097531df14e4728737b860becef0bf98c34b421ef4411844a571b839b25ca1141fc'
