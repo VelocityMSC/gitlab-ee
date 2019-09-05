@@ -1,14 +1,16 @@
 # Gitlab Enterprise Edition v12.1.1
 # Maintainer: Steven Cook <scook@velocity.org>
 
-# Note: This package conflicts with Gitlab, which provides the CE (community edition).
-# DO NOT upload this package to the Arch Linux AUR; this package is solely for use by Velocity only.
+# Note: This package conflicts with Gitlab, which provides the CE
+# (community edition). DO NOT upload this package to the Arch Linux
+# AUR; this package is solely for use by Velocity only.
+
 # This package must be manually upgraded for now. In the future, we may provide a custom Arch Linux repository.
 
 _pkgname=gitlab
 
 pkgname=velocity-${_pkgname}-ee
-pkgver=12.2.1
+pkgver=12.2.4
 pkgrel=1
 pkgdesc="Project management and code hosting application"
 arch=('x86_64')
@@ -44,7 +46,7 @@ source=(
 )
 install=gitlab.install
 sha512sums=(
-"e92bc907f7d4e3c9d9d2797222cf69a1fc32325cff9cf0230727882f73e83a6727fd4fdfb443298734a349099ab698d68bbc18b871e43fbb4fce92b41f18a9c0"
+    "b2895058964e9c21bd7140b9b2453bbab0a23e5534a52d4972943eee9caf08962c6694e5c3cf8bff1e61209ec4dc5ff1073e612a47fde426867487efc93f8e5a"
     '528ffc56bc93f457c0e40ac1dd10b0b565e757d9962102c531ee1084536d8a17796485b704468f051edceb8aea8f8dfa1df3f5682972d5c2c02571b18c7c0568'
     '28cd84a329566724c493ecaa90f23f1f01cdab3673ee4a3ecb7dfc8e33223b858a2fc23a13c2b4be2fd933b26fdfbb781ae10f1a84b248ba2ab3eefc4419f1f7'
     'c711c31a0a7b5a0b8d997827f0895422df7f2c9d81aafc371fe8e09e25ae1097531df14e4728737b860becef0bf98c34b421ef4411844a571b839b25ca1141fc'
@@ -114,6 +116,7 @@ build() {
     echo "Fetching bundled gems..."
 
     # Gems will be installed into vendor/bundle
+    bundle-2.5 config build.gpgme --use-system-libraries
     bundle-2.5 install --no-cache --deployment --without development test aws kerberos
 
     # We'll temporarily stick this in here so we can build the assets
