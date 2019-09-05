@@ -8,7 +8,7 @@
 _pkgname=gitlab
 
 pkgname=velocity-${_pkgname}-ee
-pkgver=12.1.6
+pkgver=12.2.1
 pkgrel=1
 pkgdesc="Project management and code hosting application"
 arch=('x86_64')
@@ -21,7 +21,6 @@ depends=('ruby2.5' 'ruby2.5-bundler' 'git' 'gitlab-workhorse' 'gitlab-gitaly' 'o
 makedepends=('cmake' 'postgresql' 'mariadb' 'yarn' 'go' 'nodejs')
 optdepends=(
     'postgresql: PostgreSQL database backend'
-    'mysql: MySQL database backend'
     'python2-docutils: reStructuredText markup language support'
     'smtp-server: Mail server to receive e-mail notifications'
 )
@@ -45,7 +44,7 @@ source=(
 )
 install=gitlab.install
 sha512sums=(
-"069e7c38a855341385b9873414a028ac0a8fa94bcd4b2cbeb70e5b80128d810538ead55b72c185a4d045553232f341e2817fdad34511ce5bc5c52709bbacba68"
+"e92bc907f7d4e3c9d9d2797222cf69a1fc32325cff9cf0230727882f73e83a6727fd4fdfb443298734a349099ab698d68bbc18b871e43fbb4fce92b41f18a9c0"
     '528ffc56bc93f457c0e40ac1dd10b0b565e757d9962102c531ee1084536d8a17796485b704468f051edceb8aea8f8dfa1df3f5682972d5c2c02571b18c7c0568'
     '28cd84a329566724c493ecaa90f23f1f01cdab3673ee4a3ecb7dfc8e33223b858a2fc23a13c2b4be2fd933b26fdfbb781ae10f1a84b248ba2ab3eefc4419f1f7'
     'c711c31a0a7b5a0b8d997827f0895422df7f2c9d81aafc371fe8e09e25ae1097531df14e4728737b860becef0bf98c34b421ef4411844a571b839b25ca1141fc'
@@ -95,8 +94,7 @@ prepare() {
     # We need this one untouched because otherwise assets will fail
     cp config/database.yml.postgresql config/database.yml.postgresql.orig
 
-    echo "Patching username in database.yml.{mysql,postgresql}..."
-    sed -i -e "s|username: git|username: gitlab|" config/database.yml.mysql
+    echo "Patching username in database.yml.postgresql..."
     sed -i -e "s|username: git|username: gitlab|" config/database.yml.postgresql
 
     echo "Patching redis connection in resque.yml"
@@ -116,7 +114,7 @@ build() {
     echo "Fetching bundled gems..."
 
     # Gems will be installed into vendor/bundle
-    bundle-2.5 install --no-cache --without mysql development test --deployment
+    bundle-2.5 install --no-cache --deployment --without development test aws kerberos
 
     # We'll temporarily stick this in here so we can build the assets
     cp config/database.yml.postgresql.orig config/database.yml
