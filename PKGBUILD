@@ -10,7 +10,7 @@
 _pkgname=gitlab
 
 pkgname=velocity-${_pkgname}-ee
-pkgver=12.3.5
+pkgver=12.4.0
 pkgrel=1
 pkgdesc="Project management and code hosting application"
 arch=('x86_64')
@@ -46,7 +46,7 @@ source=(
 )
 install=gitlab.install
 sha512sums=(
-'a6fc9e6cdf5f0332d43e085cbf31f3a7570becb09b32d3cd34151c7225180ec54b174fdc7cff98d7870247d2af65f527f5e7a558fdcfb08b0bacb9eb90771f01'
+'656511e90afe81374d721ec46f132ae0ea1e0cdcb3356ecd15ad8231ecd054e702a8545dcd2cee5439a36d6f76e599cb879eb2d2aee7764a23184ead1d57865f'
     '528ffc56bc93f457c0e40ac1dd10b0b565e757d9962102c531ee1084536d8a17796485b704468f051edceb8aea8f8dfa1df3f5682972d5c2c02571b18c7c0568'
     '28cd84a329566724c493ecaa90f23f1f01cdab3673ee4a3ecb7dfc8e33223b858a2fc23a13c2b4be2fd933b26fdfbb781ae10f1a84b248ba2ab3eefc4419f1f7'
     'c711c31a0a7b5a0b8d997827f0895422df7f2c9d81aafc371fe8e09e25ae1097531df14e4728737b860becef0bf98c34b421ef4411844a571b839b25ca1141fc'
