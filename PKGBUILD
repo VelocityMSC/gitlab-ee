@@ -20,7 +20,7 @@ conflicts=("${_pkgname}")
 provides=("${_pkgname}")
 options=(!buildflags)
 depends=('ruby2.5' 'ruby2.5-bundler' 'git' 'gitlab-workhorse' 'gitlab-gitaly' 'openssh' 'redis' 'libxslt' 'icu' 're2' 'http-parser' 'nodejs')
-makedepends=('cmake' 'postgresql' 'mariadb' 'yarn' 'go' 'nodejs')
+makedepends=('cmake' 'postgresql' 'yarn' 'go' 'nodejs')
 optdepends=(
     'postgresql: PostgreSQL database backend'
     'python2-docutils: reStructuredText markup language support'
