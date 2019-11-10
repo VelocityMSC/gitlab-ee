@@ -1,25 +1,25 @@
-# Gitlab Enterprise Edition v12.1.1
 # Maintainer: Steven Cook <scook@velocity.org>
 
-# Note: This package conflicts with Gitlab, which provides the CE
-# (community edition). DO NOT upload this package to the Arch Linux
-# AUR; this package is solely for use by Velocity only.
+# Gitlab Enterprise Edition v12.4.2
+
+# Note: This package conflicts with Gitlab, which provides the "CE" (community edition) version.
+# DO NOT upload this package to the Arch Linux AUR; this package is solely for use by Velocity only.
 
 # This package must be manually upgraded for now. In the future, we may provide a custom Arch Linux repository.
 
 _pkgname=gitlab
 
 pkgname=velocity-${_pkgname}-ee
-pkgver=12.4.0
+pkgver=12.4.2
 pkgrel=1
 pkgdesc="Project management and code hosting application"
 arch=('x86_64')
 url="https://gitlab.com/gitlab-org/gitlab-ee"
-license=('MIT')
-conflicts=("${_pkgname}")
-provides=("${_pkgname}")
+license=('custom')
+conflicts=("${_pkgname}" "${_pkgname}-ce" "${_pkgname}-ee")
+provides=("${_pkgname}" "${_pkgname}-ee")
 options=(!buildflags)
-depends=('ruby2.5' 'ruby2.5-bundler' 'git' 'gitlab-workhorse' 'gitlab-gitaly' 'openssh' 'redis' 'libxslt' 'icu' 're2' 'http-parser' 'nodejs')
+depends=('ruby2.5' 'ruby2.5-bundler' 'git' 'gitlab-workhorse' 'gitlab-gitaly' 'gitlab-shell' 'openssh' 'redis' 'libxslt' 'icu' 're2' 'http-parser' 'nodejs')
 makedepends=('cmake' 'postgresql' 'yarn' 'go' 'nodejs')
 optdepends=(
     'postgresql: PostgreSQL database backend'
@@ -46,7 +46,7 @@ source=(
 )
 install=gitlab.install
 sha512sums=(
-'656511e90afe81374d721ec46f132ae0ea1e0cdcb3356ecd15ad8231ecd054e702a8545dcd2cee5439a36d6f76e599cb879eb2d2aee7764a23184ead1d57865f'
+    'ba2dc9438966822680771f02de3b41e952722c424f86d1d00d8f0f4c63a34d4a8898a1a9a88676d3c5556118587f6df6f8075f3f54be08f32cb8f888bd39ea24'
     '528ffc56bc93f457c0e40ac1dd10b0b565e757d9962102c531ee1084536d8a17796485b704468f051edceb8aea8f8dfa1df3f5682972d5c2c02571b18c7c0568'
     '28cd84a329566724c493ecaa90f23f1f01cdab3673ee4a3ecb7dfc8e33223b858a2fc23a13c2b4be2fd933b26fdfbb781ae10f1a84b248ba2ab3eefc4419f1f7'
     'c711c31a0a7b5a0b8d997827f0895422df7f2c9d81aafc371fe8e09e25ae1097531df14e4728737b860becef0bf98c34b421ef4411844a571b839b25ca1141fc'
@@ -69,7 +69,7 @@ prepare() {
 
     cd "${_srcdir}"*
 
-    # GitLab tries to read its revision information from a file.
+    # Gitlab tries to read its revision information from a file.
     echo "${revision}" > REVISION
 
     export SKIP_STORAGE_VALIDATION='true'
@@ -134,7 +134,7 @@ build() {
 }
 
 package() {
-cd "${srcdir}/${_srcdir}"*
+    cd "${srcdir}/${_srcdir}"*
     depends+=('gitlab-shell')
 
     install -d "${pkgdir}/usr/share/webapps"
